@@ -14,8 +14,354 @@
   "contributes": {
     "commands": [
       {
-        "command": "vsce-vim-mode.helloWorld",
-        "title": "Hello World"
+        "command": "vsce-vim-mode.enableVimMode",
+        "title": "Enable Vim mode"
+      },
+      {
+        "command": "vsce-vim-mode.disableVimMode",
+        "title": "Disable Vim mode"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "vsce-vim-mode.enableVimMode",
+        "key": "Escape",
+        "when": "editorTextFocus && !vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "command": "vsce-vim-mode.disableVimMode",
+        "key": "space",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "command": "cursorDown",
+        "key": "j",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "command": "cursorUp",
+        "key": "k",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "command": "cursorLeft",
+        "key": "h",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "command": "cursorRight",
+        "key": "l",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "j",
+        "command": "selectNextSuggestion",
+        "when": "vsce-vim-mode.isVimModeEnabled && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+      },
+      {
+        "key": "k",
+        "command": "selectPrevSuggestion",
+        "when": "vsce-vim-mode.isVimModeEnabled && suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus || suggestWidgetVisible && textInputFocus && !suggestWidgetHasFocusedSuggestion"
+      },
+      {
+        "command": "cursorTop",
+        "key": "g g",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "command": "cursorBottom",
+        "key": "shift+g",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "f",
+        "command": "editor.action.formatDocument",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+      },
+      {
+        "command": "cursorHome",
+        "key": "b",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "command": "cursorEnd",
+        "key": ",",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+b",
+        "command": "workbench.action.previousEditor",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "ctrl+,",
+        "command": "workbench.action.nextEditor",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "shift+b",
+        "command": "cursorHomeSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+,",
+        "command": "cursorEndSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "alt+b",
+        "command": "workbench.action.navigateBack",
+        "when": "vsce-vim-mode.isVimModeEnabled && canNavigateBack"
+      },
+      {
+        "key": "alt+,",
+        "command": "workbench.action.navigateForward",
+        "when": "vsce-vim-mode.isVimModeEnabled && canNavigateForward"
+      },
+      {
+        "key": "n",
+        "command": "cursorMove",
+        "args": {
+          "to": "down",
+          "by": "line",
+          "value": 5
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "m",
+        "command": "cursorMove",
+        "args": {
+          "to": "up",
+          "by": "line",
+          "value": 5
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+n",
+        "command": "cursorMove",
+        "args": {
+          "to": "down",
+          "by": "line",
+          "value": 10
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+m",
+        "command": "cursorMove",
+        "args": {
+          "to": "up",
+          "by": "line",
+          "value": 10
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+shift+j",
+        "command": "editor.action.insertCursorBelow",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+shift+k",
+        "command": "editor.action.insertCursorAbove",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "w",
+        "command": "workbench.action.files.save",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "q",
+        "command": "workbench.action.closeActiveEditor",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "shift+q",
+        "command": "workbench.action.closeAllEditors",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "v",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorFocus"
+      },
+      {
+        "key": "u",
+        "command": "undo",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "r",
+        "command": "redo",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "y",
+        "command": "editor.action.clipboardCopyAction",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "p",
+        "command": "editor.action.clipboardPasteAction",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "c",
+        "command": "editor.action.clipboardCutAction",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "d",
+        "command": "editor.action.deleteLines",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+      },
+      {
+        "key": "i",
+        "command": "deleteLeft",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+      },
+      {
+        "key": "o",
+        "command": "deleteRight",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+      },
+      {
+        "key": "ctrl+i",
+        "command": "deleteWordLeft",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+      },
+      {
+        "key": "ctrl+o",
+        "command": "deleteWordRight",
+        "when": "vsce-vim-monde.isVimModeEnabled && textInputFocus && !editorReadonly"
+      },
+      {
+        "key": "alt+i",
+        "command": "subwordNavigation.deleteSubwordLeft",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "alt+o",
+        "command": "subwordNavigation.deleteSubwordRight",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
+      },
+      {
+        "key": "ctrl+l",
+        "command": "cursorWordEndRight",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+shift+l",
+        "command": "cursorWordEndRightSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+h",
+        "command": "cursorWordLeft",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "ctrl+shift+h",
+        "command": "cursorWordLeftSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "alt+h",
+        "command": "subwordNavigation.cursorSubwordLeft",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "alt+l",
+        "command": "subwordNavigation.cursorSubwordRight",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "alt+shift+h",
+        "command": "subwordNavigation.cursorSubwordLeftSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "alt+shift+l",
+        "command": "subwordNavigation.cursorSubwordRightSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "shift+l",
+        "command": "cursorRightSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+l",
+        "command": "cursorRightSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+h",
+        "command": "cursorLeftSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+k",
+        "command": "cursorUpSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+j",
+        "command": "cursorDownSelect",
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "alt+j",
+        "command": "editor.action.moveLinesDownAction",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "alt+k",
+        "command": "editor.action.moveLinesUpAction",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "j",
+        "command": "list.focusDown",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && !inputFocus"
+      },
+      {
+        "key": "k",
+        "command": "list.focusUp",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && !inputFocus"
+      },
+      {
+        "key": "h",
+        "command": "list.collapse",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && treeElementCanCollapse && !inputFocus || listFocus && treeElementHasParent && !inputFocus"
+      },
+      {
+        "key": "ctrl+h",
+        "command": "list.collapseAll",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && !inputFocus"
+      },
+      {
+        "key": "l",
+        "command": "list.expand",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && treeElementCanExpand && !inputFocus || listFocus && treeElementHasChild && !inputFocus"
+      },
+      {
+        "key": "t",
+        "command": "editor.action.transformToLowercase",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "shift+t",
+        "command": "editor.action.transformToUppercase",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": ".",
+        "command": "editor.action.revealDefinition",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
       }
     ]
   },

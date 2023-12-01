@@ -4,13 +4,33 @@ const vscode = require('vscode');
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-  console.log('Congratulations, your extension "vsce-vim-mode" is now active!');
+  const vimModeStatusBar = vscode.window.createStatusBarItem(
+    vscode.StatusBarAlignment.Left,
+    Number.MIN_SAFE_INTEGER,
+  );
 
-  const disposable = vscode.commands.registerCommand('vsce-vim-mode.helloWorld', () => {
-    vscode.window.showInformationMessage('Hello World from Alex Gudkov Vim Mode!');
-  });
+  const enableVimModeCommand = vscode.commands.registerCommand(
+    'vsce-vim-mode.enableVimMode',
+    async () => {
+      vimModeStatusBar.text = '-- VIM MODE --';
+      vimModeStatusBar.color = '#0dbc79';
+      vimModeStatusBar.show();
 
-  context.subscriptions.push(disposable);
+      await vscode.commands.executeCommand('setContext', 'vsce-vim-mode.isVimModeEnabled', true);
+    },
+  );
+
+  const disableVimModeCommand = vscode.commands.registerCommand(
+    'vsce-vim-mode.disableVimMode',
+    async () => {
+      vimModeStatusBar.text = '';
+      vimModeStatusBar.hide();
+
+      await vscode.commands.executeCommand('setContext', 'vsce-vim-mode.isVimModeEnabled', false);
+    },
+  );
+
+  context.subscriptions.push(enableVimModeCommand, disableVimModeCommand);
 }
 
 function deactivate() {}
