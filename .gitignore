@@ -1,5 +1,2 @@
-# dependencies 
-/node_modules
-
-# VS extension files
-/*.vsix
+node_modules/
+*.vsix
