@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -143,7 +143,7 @@
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "ctrl+n",
+        "key": "alt+n",
         "command": "cursorMove",
         "args": {
           "to": "down",
@@ -153,7 +153,7 @@
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "ctrl+m",
+        "key": "alt+m",
         "command": "cursorMove",
         "args": {
           "to": "up",
@@ -318,6 +318,50 @@
         "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
       },
       {
+        "key": "shift+n",
+        "command": "cursorMove",
+        "args": {
+          "to": "down",
+          "by": "line",
+          "value": 5,
+          "select": true
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "shift+m",
+        "command": "cursorMove",
+        "args": {
+          "to": "up",
+          "by": "line",
+          "value": 5,
+          "select": true
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "alt+shift+n",
+        "command": "cursorMove",
+        "args": {
+          "to": "down",
+          "by": "line",
+          "value": 10,
+          "select": true
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
+        "key": "alt+shift+m",
+        "command": "cursorMove",
+        "args": {
+          "to": "up",
+          "by": "line",
+          "value": 10,
+          "select": true
+        },
+        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+      },
+      {
         "key": "alt+j",
         "command": "editor.action.moveLinesDownAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
@@ -366,6 +410,56 @@
         "key": ".",
         "command": "editor.action.revealDefinition",
         "when": "vsce-vim-mode.isVimModeEnabled && editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
+      },
+      {
+        "key": "left",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "right",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "up",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "down",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "e",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "a",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "s",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "z",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "x",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": ";",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
       }
     ]
   },
