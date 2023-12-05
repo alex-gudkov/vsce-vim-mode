@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -193,6 +193,11 @@
         "when": "vsce-vim-mode.isVimModeEnabled && editorFocus"
       },
       {
+        "key": "alt+v",
+        "command": "noop",
+        "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
         "key": "u",
         "command": "undo",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
@@ -362,12 +367,12 @@
         "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
       },
       {
-        "key": "alt+j",
+        "key": "alt+shift+j",
         "command": "editor.action.moveLinesDownAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "alt+k",
+        "key": "alt+shift+k",
         "command": "editor.action.moveLinesUpAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
@@ -407,7 +412,7 @@
         "when": "vsce-vim-mode.isVimModeEnabled"
       },
       {
-        "key": ".",
+        "key": "e",
         "command": "editor.action.revealDefinition",
         "when": "vsce-vim-mode.isVimModeEnabled && editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
       },
@@ -428,11 +433,6 @@
       },
       {
         "key": "down",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "e",
         "command": "noop",
         "when": "vsce-vim-mode.isVimModeEnabled"
       },
@@ -460,6 +460,31 @@
         "key": ";",
         "command": "noop",
         "when": "vsce-vim-mode.isVimModeEnabled"
+      },
+      {
+        "key": "a",
+        "command": "list.selectAll",
+        "when": "vsce-vim-mode.isVimModeEnabled && listFocus && listSupportsMultiselect && !inputFocus"
+      },
+      {
+        "key": "a",
+        "command": "editor.action.selectAll",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "s",
+        "command": "editor.toggleFold",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
+      },
+      {
+        "key": "0",
+        "command": "editor.foldAll",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
+      },
+      {
+        "key": "9",
+        "command": "editor.unfoldAll",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
       }
     ]
   },
