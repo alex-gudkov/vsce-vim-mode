@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -13,7 +13,9 @@
   "categories": [
     "Keymaps"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "*"
+  ],
   "main": "extension.js",
   "contributes": {
     "commands": [
@@ -399,32 +401,32 @@
       {
         "key": "t l",
         "command": "editor.action.transformToLowercase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "t u",
         "command": "editor.action.transformToUppercase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "t c",
         "command": "editor.action.transformToCamelcase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "t k",
         "command": "editor.action.transformToKebabcase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "t s",
         "command": "editor.action.transformToSnakecase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "t t",
         "command": "editor.action.transformToTitlecase",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "e",
@@ -455,6 +457,11 @@
         "key": "9",
         "command": "editor.unfoldAll",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
+      },
+      {
+        "key": "/",
+        "command": "editor.action.commentLine",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       }
     ]
   },

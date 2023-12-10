@@ -30,11 +30,10 @@ function activate(context) {
   const disableVimModeCommand = vscode.commands.registerCommand(
     'vsce-vim-mode.disableVimMode',
     async () => {
-      vimModeStatusBar.text = '';
       vimModeStatusBar.hide();
 
       await vscode.commands.executeCommand('setContext', 'vsce-vim-mode.isVimModeEnabled', false);
-      
+
       if (ignoreTypeCommand) {
         ignoreTypeCommand.dispose();
       }
@@ -42,6 +41,8 @@ function activate(context) {
   );
 
   context.subscriptions.push(enableVimModeCommand, disableVimModeCommand);
+
+  vscode.commands.executeCommand('vsce-vim-mode.enableVimMode');
 }
 
 function deactivate() {}
