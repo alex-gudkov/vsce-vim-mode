@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -455,16 +455,6 @@
         "key": "9",
         "command": "editor.unfoldAll",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
-      },
-      {
-        "key": "alt+v",
-        "command": "noop",
-        "when": "true"
-      },
-      {
-        "key": "alt+h",
-        "command": "noop",
-        "when": "true"
       }
     ]
   },
