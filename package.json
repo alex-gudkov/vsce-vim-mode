@@ -1,14 +1,14 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
     "mode"
   ],
-	"icon": "icon.png",
-	"license": "MIT",
+  "icon": "icon.png",
+  "license": "MIT",
   "author": "Alex Gudkov",
   "categories": [
     "Keymaps"
@@ -188,7 +188,7 @@
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "v",
+        "key": "y",
         "command": "editor.action.addSelectionToNextFindMatch",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
@@ -203,17 +203,17 @@
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "y",
+        "key": "c",
         "command": "editor.action.clipboardCopyAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "p",
+        "key": "v",
         "command": "editor.action.clipboardPasteAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "c",
+        "key": "x",
         "command": "editor.action.clipboardCutAction",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
@@ -397,13 +397,33 @@
         "when": "vsce-vim-mode.isVimModeEnabled && listFocus && treeElementCanExpand && !inputFocus || listFocus && treeElementHasChild && !inputFocus"
       },
       {
-        "key": "t",
+        "key": "t l",
         "command": "editor.action.transformToLowercase",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
-        "key": "shift+t",
+        "key": "t u",
         "command": "editor.action.transformToUppercase",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "t c",
+        "command": "editor.action.transformToCamelcase",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "t k",
+        "command": "editor.action.transformToKebabcase",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "t s",
+        "command": "editor.action.transformToSnakecase",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
+      },
+      {
+        "key": "t t",
+        "command": "editor.action.transformToTitlecase",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
