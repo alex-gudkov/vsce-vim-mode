@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -14,7 +14,7 @@
     "Keymaps"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "extension.js",
   "contributes": {
