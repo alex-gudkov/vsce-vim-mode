@@ -1,7 +1,7 @@
 {
   "name": "vsce-vim-mode",
   "displayName": "Alex Gudkov Vim Mode",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Vim mode extension for VS Code",
   "keywords": [
     "vim",
@@ -29,13 +29,13 @@
     "keybindings": [
       {
         "command": "vsce-vim-mode.enableVimMode",
-        "key": "Escape",
-        "when": "editorTextFocus && !vsce-vim-mode.isVimModeEnabled"
+        "key": "capslock",
+        "when": "!vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "command": "vsce-vim-mode.disableVimMode",
-        "key": "space",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "key": "capslock",
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "command": "cursorDown",
@@ -80,7 +80,7 @@
       {
         "key": "f",
         "command": "editor.action.formatDocument",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && editorHasDocumentFormattingProvider && !editorReadonly && !inCompositeEditor"
       },
       {
         "command": "cursorHome",
@@ -105,12 +105,12 @@
       {
         "key": "shift+b",
         "command": "cursorHomeSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+,",
         "command": "cursorEndSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "alt+b",
@@ -175,27 +175,22 @@
       {
         "key": "w",
         "command": "workbench.action.files.save",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "q",
         "command": "workbench.action.closeActiveEditor",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+q",
         "command": "workbench.action.closeAllEditors",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "v",
         "command": "editor.action.addSelectionToNextFindMatch",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorFocus"
-      },
-      {
-        "key": "alt+v",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "u",
@@ -225,27 +220,27 @@
       {
         "key": "d",
         "command": "editor.action.deleteLines",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "i",
         "command": "deleteLeft",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "o",
         "command": "deleteRight",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "ctrl+i",
         "command": "deleteWordLeft",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus && !editorReadonly"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "ctrl+o",
         "command": "deleteWordRight",
-        "when": "vsce-vim-monde.isVimModeEnabled && textInputFocus && !editorReadonly"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && !editorReadonly"
       },
       {
         "key": "alt+i",
@@ -300,27 +295,27 @@
       {
         "key": "shift+l",
         "command": "cursorRightSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+l",
         "command": "cursorRightSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+h",
         "command": "cursorLeftSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+k",
         "command": "cursorUpSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+j",
         "command": "cursorDownSelect",
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+n",
@@ -331,7 +326,7 @@
           "value": 5,
           "select": true
         },
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+m",
@@ -342,7 +337,7 @@
           "value": 5,
           "select": true
         },
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "alt+shift+n",
@@ -353,7 +348,7 @@
           "value": 10,
           "select": true
         },
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "alt+shift+m",
@@ -364,7 +359,7 @@
           "value": 10,
           "select": true
         },
-        "when": "vsce-vim-mode.isVimModeEnabled && textInputFocus"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "alt+shift+j",
@@ -404,62 +399,17 @@
       {
         "key": "t",
         "command": "editor.action.transformToLowercase",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "shift+t",
         "command": "editor.action.transformToUppercase",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus"
       },
       {
         "key": "e",
         "command": "editor.action.revealDefinition",
-        "when": "vsce-vim-mode.isVimModeEnabled && editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor"
-      },
-      {
-        "key": "left",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "right",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "up",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "down",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "a",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "s",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "z",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": "x",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
-      },
-      {
-        "key": ";",
-        "command": "noop",
-        "when": "vsce-vim-mode.isVimModeEnabled"
+        "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && editorHasDefinitionProvider && !isInEmbeddedEditor"
       },
       {
         "key": "a",
@@ -485,6 +435,16 @@
         "key": "9",
         "command": "editor.unfoldAll",
         "when": "vsce-vim-mode.isVimModeEnabled && editorTextFocus && foldingEnabled"
+      },
+      {
+        "key": "alt+v",
+        "command": "noop",
+        "when": "true"
+      },
+      {
+        "key": "alt+h",
+        "command": "noop",
+        "when": "true"
       }
     ]
   },
